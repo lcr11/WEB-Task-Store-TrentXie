@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="关键词1，关键词2">
+    <meta name="Description" content="描述">
+    <title>Document</title>
+</head>
+<style>
+
+#wrap {position:relative; width:520px; height:280px; margin:150px auto 0;}
+#pic {position:absolute; left:0; top:0; width:2600px;}
+#pic div {float:left;}
+#tab {width:520px;}
+#tab ul {position:absolute; left:50%; bottom:15px; margin-left:-33px; background:rgba(255,255,255,.3); border-radius:10px;}
+#tab ul li {width:9px; height:9px; margin:2px; background:#b7b7b7; list-style:none; border-radius:50%; float:left; cursor:pointer;}
+#tab ul li.on {background:#f60;}
+#tab.slider-page a {position:absolute; top:50%; width:24px; height:36px; margin-top:-18px; text-align:center; line-height:36px; color:#fff; text-decoration:none; background:rgba(0,0,0,.2)}
+    #tab .slider-prev {left:0;}
+    #tab .slider-next {right:0;}
+    
+</style>
+<body>
+
+   <div id="wrap">
+       <div id="pic"></div>
+       <a href='#'>
+           <img src="images/101.jpg" width="520" height="280">
+       </a>
+   </div>
+   <div id="wrap">
+       <div id="pic"></div>
+       <a href='#'>
+           <img src="images/102.jpg" width="520" height="280">
+       </a>
+   </div>
+   <div id="wrap">
+       <div id="pic"></div>
+       <a href='#'>
+           <img src="images/103.jpg" width="520" height="280">
+       </a>
+   </div>
+   <div id="wrap">
+       <div id="pic"></div>
+       <a href='#'>
+           <img src="images/104.jpg" width="520" height="280">
+       </a>
+   </div>
+   <div id="wrap">
+       <div id="pic"></div>
+       <a href='#'>
+           <img src="images/105.jpg" width="520" height="280">
+       </a>
+   </div>
+   <div id="tab">
+       <ul>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li>
+       </ul>
+       <div class="slider-page">
+           <a href="javascript:void(0)"
+           class="slider-prev">&lt;</a>
+           <a href="javascript:void(0)"
+           class="slider-next">&gt;</a>
+       </div>
+   </div>
+   <script type="text/javascript" src="js/move.js"></script>
+<script>
+function (){
+    var oPic=document.getElementById('pic');
+    var oTab=document.getElementById('tab');
+    var aLi=oTab.getElementByTagname('li');
+    var sliderPage=document.getElementsByClassName('slider-page')[0];
+    var aA=sliderPage.getElementsByTagName('a');
+    var aLilength=aLi.length;
+    var num=0;
+    aLi[0].className='on';
+    for(var i=0; i<aLilength; i++){
+        aLi[i].index=i;
+    }
+    aLi[i].onclick=function(){
+        num=this.index;
+        for (var j=0; j<aLilength; j++){
+            aLi[j].className='';
+        }
+        this.className="on"; 
+        move(oPic,'left',-520*num,300);
+    }
+    aA[0].onclick=function(){
+        num--;
+        if(num<0){
+            num=4
+        }
+        for (var j=0; j<aLilength; j++){
+            aLi[j].className = "";
+        }
+        ali[num].className="on";
+        move(oPic,'left',-520*num,300);
+    }
+    aA[1].onclick=function(){
+        num++;
+        num%=aLilength;
+        for (var j=0; j<aLilength;j++){
+        }
+        ali[num].className="on";
+        move(oPic,'left',-520*num,300);
+    }
+}
+</script>
+</body>
+</html>
